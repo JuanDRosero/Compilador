@@ -43,6 +43,8 @@ public class FrmAnalizador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane3 = new javax.swing.JScrollPane();
+        Resultado1 = new javax.swing.JTextArea();
         BotonAnalisis = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Resultado = new javax.swing.JTextArea();
@@ -51,6 +53,14 @@ public class FrmAnalizador extends javax.swing.JFrame {
         btnArchivo = new javax.swing.JButton();
         rutaJtext = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        AnalisisSintactico = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        TASintactico = new javax.swing.JTextArea();
+
+        Resultado1.setColumns(20);
+        Resultado1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        Resultado1.setRows(5);
+        jScrollPane3.setViewportView(Resultado1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,27 +99,44 @@ public class FrmAnalizador extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Ruta del archivo:");
 
+        AnalisisSintactico.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        AnalisisSintactico.setText("Analisis Sintactico");
+        AnalisisSintactico.setName("AnalisisSintactico"); // NOI18N
+        AnalisisSintactico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AnalisisSintacticoActionPerformed(evt);
+            }
+        });
+
+        TASintactico.setColumns(20);
+        TASintactico.setRows(5);
+        jScrollPane4.setViewportView(TASintactico);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(rutaJtext, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(BotonAnalisis))
-                            .addComponent(jLabel1))))
-                .addContainerGap(25, Short.MAX_VALUE))
+                                .addComponent(BotonAnalisis)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(AnalisisSintactico))
+                            .addComponent(jLabel1))
+                        .addContainerGap(117, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,13 +148,20 @@ public class FrmAnalizador extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnArchivo)
-                    .addComponent(BotonAnalisis))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotonAnalisis)
+                    .addComponent(AnalisisSintactico))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
+
+        AnalisisSintactico.getAccessibleContext().setAccessibleName("");
+        AnalisisSintactico.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -378,17 +412,38 @@ public class FrmAnalizador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rutaJtextActionPerformed
 
+    private void AnalisisSintacticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnalisisSintacticoActionPerformed
+        // TODO add your handling code here:
+        String texto = Resultado.getText();
+        Sintax s = new Sintax(new AnalizadorLex.LexicoCup(new StringReader(texto)));
+
+        try {
+            s.parse();
+            TASintactico.setText("Analisis realizado correctamente");
+            TASintactico.setForeground(new Color(25, 111, 61));
+        } catch (Exception ex) {
+            Symbol sym = s.getS();
+            TASintactico.setText("Error de sintaxis. Linea: " + (sym.right + 1) + " Columna: " + (sym.left + 1) + ", Texto: \"" + sym.value + "\"");
+            TASintactico.setForeground(Color.red);
+        }
+    }//GEN-LAST:event_AnalisisSintacticoActionPerformed
+
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AnalisisSintactico;
     private javax.swing.JButton BotonAnalisis;
     private javax.swing.JTextArea Resultado;
+    private javax.swing.JTextArea Resultado1;
+    private javax.swing.JTextArea TASintactico;
     private javax.swing.JButton btnArchivo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextField rutaJtext;
     private javax.swing.JTextArea txtAnalizarLex;
     // End of variables declaration//GEN-END:variables
