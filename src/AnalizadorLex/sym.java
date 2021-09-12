@@ -12,7 +12,7 @@ public class sym {
   public static final int Op_relacional = 41;
   public static final int Coma = 54;
   public static final int ScanF = 26;
-  public static final int Llave_c = 48;
+  public static final int Llave_c = 16;
   public static final int Op_booleano = 44;
   public static final int Double = 12;
   public static final int Llave_a = 47;
@@ -28,7 +28,7 @@ public class sym {
   public static final int Corchete_a = 49;
   public static final int Extern = 22;
   public static final int Union = 17;
-  public static final int Long = 16;
+  public static final int Long = 48;
   public static final int Punto = 53;
   public static final int Parent_c = 46;
   public static final int Return = 57;
