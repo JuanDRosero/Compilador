@@ -36,7 +36,7 @@ public class AnalizadorLexico {
             Files.delete(caminoSym);
         }
         Files.move(
-                Paths.get("../AnalizadorLexico/sym.java"), 
+                Paths.get("../Compilador/sym.java"), 
                 Paths.get("src/AnalizadorLex/sym.java")
         );
         Path caminoSint = Paths.get("src/AnalizadorLex/Sintax.java");
@@ -44,7 +44,7 @@ public class AnalizadorLexico {
             Files.delete(caminoSint);
         }
         Files.move(
-                Paths.get("../AnalizadorLexico/Sintax.java"), 
+                Paths.get("../Compilador/Sintax.java"), 
                 Paths.get("src/AnalizadorLex/Sintax.java")
         ); 
         
