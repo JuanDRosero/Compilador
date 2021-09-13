@@ -23,7 +23,7 @@ terminal Linea, Comillas, T_dato, Cadena, If, Else, Do, While, For, Int, Double,
     Llave_a, Llave_c, Corchete_a, Corchete_c, Main, P_coma, Punto, Coma, Identificador,
     Numero,Return, ERROR;
 non terminal INICIO, SENTENCIA, DECLARACION, DECLARACION_FOR, IF, IF_ELSE,
-    WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR, PRINTF, SCANF;
+    WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR, PRINTF, SCANF,CIN, COUT ;
 
 start with INICIO;
 
@@ -43,7 +43,9 @@ SENTENCIA ::=
     SENTENCIA FOR |
     FOR |
     PRINTF |
-    SCANF
+    SCANF |
+    CIN |
+    COUT
 ;
 DECLARACION ::= 
     T_dato Identificador P_coma | 
@@ -89,4 +91,11 @@ PRINTF ::=
 ;
  SCANF ::=
     ScanF Parent_a Comillas Identificador Comillas Coma Identificador Parent_c P_coma
+;
+CIN ::=
+    Cin Op_relacional Identificador P_coma
+;
+COUT ::=
+    Cout Op_relacional Comillas Identificador Comillas P_coma |
+    Cout Op_relacional Comillas Identificador Comillas Op_relacional Identificador P_coma 
 ;
