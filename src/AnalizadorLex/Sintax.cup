@@ -23,7 +23,7 @@ terminal Linea, Comillas, T_dato, Cadena, If, Else, Do, While, For, Int, Double,
     Llave_a, Llave_c, Corchete_a, Corchete_c, Main, P_coma, Punto, Coma, Identificador,
     Numero,Return, ERROR;
 non terminal INICIO, SENTENCIA, DECLARACION, DECLARACION_FOR, IF, IF_ELSE,
-    WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR, PRINTF, SCANF,CIN, COUT ;
+    WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR, DECLARACIONV, CADENA,  PRINTF, SCANF, SENTENCIACOUT, CIN, COUT ;
 
 start with INICIO;
 
@@ -85,17 +85,31 @@ DECLARACION_FOR ::=
     Identificador Op_incremento | 
     Op_incremento Identificador
 ;
+DECLARACIONV ::=
+    Identificador |
+    Identificador Coma DECLARACIONV
+;
+CADENA ::=
+    Identificador |
+    Identificador CADENA
+;
 PRINTF ::=
-    PrintF Parent_a Comillas Identificador Comillas Parent_c P_coma |
-    PrintF Parent_a Comillas Identificador Comillas Coma Identificador Parent_c P_coma 
+    PrintF Parent_a Comillas CADENA Comillas Parent_c P_coma |
+    PrintF Parent_a Comillas CADENA Comillas Coma DECLARACIONV Parent_c P_coma 
 ;
  SCANF ::=
-    ScanF Parent_a Comillas Identificador Comillas Coma Identificador Parent_c P_coma
+    ScanF Parent_a Comillas CADENA Comillas Coma DECLARACIONV Parent_c P_coma
 ;
 CIN ::=
     Cin Op_relacional Identificador P_coma
 ;
+SENTENCIACOUT ::=
+    Op_relacional Identificador |
+    Op_relacional Comillas CADENA Comillas |
+    Op_relacional Identificador SENTENCIACOUT |
+    Op_relacional Comillas CADENA Comillas SENTENCIACOUT 
+;
 COUT ::=
-    Cout Op_relacional Comillas Identificador Comillas P_coma |
-    Cout Op_relacional Comillas Identificador Comillas Op_relacional Identificador P_coma 
+    Cout Op_relacional Comillas CADENA Comillas P_coma |
+    Cout Op_relacional Comillas CADENA Comillas SENTENCIACOUT P_coma 
 ;

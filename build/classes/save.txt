@@ -1,3 +1,3 @@
 int main(){
-printf("Hola",variable);
+cout<<"Cadena"<<var1<<"Hola2";
 }
