@@ -178,6 +178,9 @@ espacio=[ \t \r]+
 /* P_Coma */
 ( ";" ) {lexemas=yytext(); return P_Coma;}
 
+/* Dos_puntos */
+( ":" ) {lexemas=yytext(); return Dos_puntos;}
+
 /* Identificador */
 {L}({L}|{D})* {lexemas=yytext(); return Identificador;}
 

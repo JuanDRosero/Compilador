@@ -181,6 +181,9 @@ espacio=[ \t \r \n]+
 /* P_coma */
 ( ";" ) {return new Symbol(sym.P_coma, yychar, yyline, yytext());}
 
+/* Dos_puntos */
+( ":" ) {return new Symbol(sym.Dos_puntos, yychar, yyline, yytext());}
+
 /* Identificador */
 {L}({L}|{D})* {return new Symbol(sym.Identificador, yychar, yyline, yytext());}
 
