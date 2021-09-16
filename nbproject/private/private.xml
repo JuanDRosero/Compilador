@@ -3,8 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/jdros/OneDrive/Documentos/Tareas%20Universidad/Ciencias%203/AnalizadorLex/Compilador/src/AnalizadorLex/Lexico.flex</file>
-            <file>file:/C:/Users/jdros/OneDrive/Documentos/Tareas%20Universidad/Ciencias%203/AnalizadorLex/Compilador/src/AnalizadorLex/Sintax.cup</file>
+            <file>file:/C:/Users/Julie/Documents/UNIVERSIDAD/2021-1/Ciencias3/Compilador/src/AnalizadorLex/AnalizadorLexico.java</file>
+            <file>file:/C:/Users/Julie/Documents/UNIVERSIDAD/2021-1/Ciencias3/Compilador/src/AnalizadorLex/LexicoCup.flex</file>
+            <file>file:/C:/Users/Julie/Documents/UNIVERSIDAD/2021-1/Ciencias3/Compilador/src/AnalizadorLex/Lexico.java</file>
+            <file>file:/C:/Users/Julie/Documents/UNIVERSIDAD/2021-1/Ciencias3/Compilador/src/AnalizadorLex/LexicoCup.java</file>
+            <file>file:/C:/Users/Julie/Documents/UNIVERSIDAD/2021-1/Ciencias3/Compilador/src/AnalizadorLex/Sintax.java</file>
+            <file>file:/C:/Users/Julie/Documents/UNIVERSIDAD/2021-1/Ciencias3/Compilador/src/AnalizadorLex/sym.java</file>
+            <file>file:/C:/Users/Julie/Documents/UNIVERSIDAD/2021-1/Ciencias3/Compilador/src/AnalizadorLex/Lexico.flex</file>
+            <file>file:/C:/Users/Julie/Documents/UNIVERSIDAD/2021-1/Ciencias3/Compilador/src/AnalizadorLex/Tokens.java</file>
+            <file>file:/C:/Users/Julie/Documents/UNIVERSIDAD/2021-1/Ciencias3/Compilador/src/AnalizadorLex/FrmAnalizador.java</file>
+            <file>file:/C:/Users/Julie/Documents/UNIVERSIDAD/2021-1/Ciencias3/Compilador/src/AnalizadorLex/Sintax.cup</file>
         </group>
     </open-files>
 </project-private>

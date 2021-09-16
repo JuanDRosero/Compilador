@@ -1,3 +1,6 @@
-int main(){
-cout<<"Cadena"<<var1<<"Hola2";
+int main (){
+switch(a){
+case "hi" : 
+printf("hola como estas");
+break;
 }

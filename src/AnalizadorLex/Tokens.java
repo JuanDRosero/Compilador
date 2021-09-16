@@ -53,6 +53,7 @@ public enum Tokens {
     Corchete_c,
     Main,
     Punto,
+    Dos_puntos,
     Coma,
     P_Coma,
     Identificador,

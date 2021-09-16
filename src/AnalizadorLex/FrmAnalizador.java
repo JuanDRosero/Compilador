@@ -336,6 +336,9 @@ public class FrmAnalizador extends javax.swing.JFrame {
                 case P_Coma:
                     resultado += "  <Punto y coma>\t" + lexicos.lexemas + "\n";
                     break;
+                case Dos_puntos:
+                    resultado += "  <Dos puntos>\t" + lexicos.lexemas + "\n";
+                    break;
                 case Punto:
                     resultado += "  <Punto>\t\t" + lexicos.lexemas + "\n";
                     break;
