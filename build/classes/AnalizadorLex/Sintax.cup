@@ -92,7 +92,7 @@ DECLARACIONV ::=
 CADENA ::=
     Identificador |
     Identificador CADENA
-;
+;   
 PRINTF ::=
     PrintF Parent_a Comillas CADENA Comillas Parent_c P_coma |
     PrintF Parent_a Comillas CADENA Comillas Coma DECLARACIONV Parent_c P_coma 
