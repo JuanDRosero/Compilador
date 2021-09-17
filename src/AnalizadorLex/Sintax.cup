@@ -43,19 +43,30 @@ SENTENCIA ::=
     SENTENCIA FOR |
     FOR |
     PRINTF |
+    SENTENCIA PRINTF |
     SCANF |
+    SENTENCIA SCANF |
     CIN |
+    SENTENCIA CIN |
     COUT |
-    SWITCH 
+    SENTENCIA COUT |
+    SWITCH |
+    SENTENCIA SWITCH 
 ;
 DECLARACION ::= 
-    T_dato Identificador P_coma | 
-    T_dato Identificador Op_atribucion Numero P_coma |
-    T_dato Identificador Op_atribucion Numero Punto Numero P_coma |
-    T_dato Identificador Igual Numero P_coma |
-    T_dato Identificador Igual Numero Punto Numero P_coma |
-    T_dato Identificador Op_incremento P_coma | 
-    T_dato Op_incremento Identificador P_coma | 
+    Int Identificador P_coma |
+    Int Identificador Op_atribucion Numero P_coma |
+    Int Identificador Igual Numero P_coma |
+    Int Identificador Op_incremento P_coma | 
+    Int Op_incremento Identificador P_coma | 
+    Double Identificador P_coma |
+    Double Identificador Op_atribucion Numero Punto Numero P_coma |
+    Double Identificador Igual Numero Punto Numero P_coma |
+    Char Identificador P_coma |
+    Char Identificador Igual Comillas Identificador Comillas P_coma| 
+    Float Identificador P_coma | 
+    Float Identificador Op_atribucion Numero Punto Numero P_coma |
+    Float Identificador Igual Numero Punto Numero P_coma |
     Cadena Identificador Op_atribucion Comillas Comillas P_coma |
     Cadena Identificador Igual Comillas Comillas P_coma |
     Cadena Identificador Op_atribucion Comillas Identificador Comillas P_coma |

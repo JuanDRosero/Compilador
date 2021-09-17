@@ -73,7 +73,7 @@ public class FrmAnalizador extends javax.swing.JFrame {
         });
 
         Resultado.setColumns(20);
-        Resultado.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        Resultado.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         Resultado.setRows(5);
         jScrollPane1.setViewportView(Resultado);
 
@@ -126,14 +126,14 @@ public class FrmAnalizador extends javax.swing.JFrame {
                                 .addComponent(btnArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(BotonAnalisis)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(31, 31, 31)
                                 .addComponent(AnalisisSintactico))
                             .addComponent(jLabel1))
-                        .addContainerGap(117, Short.MAX_VALUE))
+                        .addContainerGap(92, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(14, 14, 14))))

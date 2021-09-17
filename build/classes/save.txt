@@ -1,11 +1,6 @@
-<<<<<<< HEAD
 int main(){
-int c=10;
-=======
-int main (){
-switch(a){
-case "hi" : 
-printf("hola como estas");
-break;
->>>>>>> 199d4a283189bb5ce8d6fc78e269249361892264
+int b=10;
+double num=0.5;
+float p;
+int var2++;
 }
