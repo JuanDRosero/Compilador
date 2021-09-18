@@ -1,6 +1,10 @@
 int main(){
-int b=10;
-double num=0.5;
-float p;
-int var2++;
+int var=10;
+double b;
+long double=3.52;
+struct fecha {
+int var=10;
+double b;
+long double=3.52;
+}
 }

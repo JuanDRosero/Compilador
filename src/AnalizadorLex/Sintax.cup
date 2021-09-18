@@ -23,7 +23,8 @@ terminal Linea, Comillas, T_dato, Cadena, If, Else, Do, While, For, Int, Double,
     Llave_a, Llave_c, Corchete_a, Corchete_c, Main, P_coma, Punto, Coma, Identificador, Dos_puntos,
     Numero,Return, ERROR;
 non terminal INICIO, SENTENCIA, DECLARACION, DECLARACION_FOR, IF, IF_ELSE,
-    WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR, DECLARACIONV, CADENA,  PRINTF, SCANF, SENTENCIACOUT, CIN, COUT, SWITCH, SENTENCIA_CASE ;
+    WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR, DECLARACIONV, CADENA,  PRINTF,
+ SCANF, SENTENCIACOUT, CIN, COUT, SWITCH, SENTENCIA_CASE, DECLARACION_STRUCT,  STRUCT ;
 
 start with INICIO;
 
@@ -57,20 +58,46 @@ DECLARACION ::=
     Int Identificador P_coma |
     Int Identificador Op_atribucion Numero P_coma |
     Int Identificador Igual Numero P_coma |
+    Const Int Identificador Igual Numero P_coma |
     Int Identificador Op_incremento P_coma | 
-    Int Op_incremento Identificador P_coma | 
+    Int Op_incremento Identificador P_coma |
+    Short Int Identificador P_coma |
+    Short Int Identificador Op_atribucion Numero P_coma |
+    Short Int Identificador Igual Numero P_coma |
+    Short Int Identificador Op_incremento P_coma | 
+    Short Int Op_incremento Identificador P_coma |
+    Short Identificador P_coma |
+    Long Identificador P_coma | 
+    Long Int Identificador P_coma |
+    Long Int Identificador Op_atribucion Numero P_coma |
+    Long Int Identificador Igual Numero P_coma |
+    Long Int Identificador Op_incremento P_coma | 
+    Long Int Op_incremento Identificador P_coma |
+    Long Long Int Identificador P_coma |
+    Long Long Int Identificador Op_atribucion Numero P_coma |
+    Long Long Int Identificador Igual Numero P_coma |
+    Long Long Int Identificador Op_incremento P_coma | 
+    Long Long Int Op_incremento Identificador P_coma | 
     Double Identificador P_coma |
     Double Identificador Op_atribucion Numero Punto Numero P_coma |
     Double Identificador Igual Numero Punto Numero P_coma |
+    Long Double Identificador P_coma |
+    Long Double Identificador Op_atribucion Numero Punto Numero P_coma |
+    Long Double Identificador Igual Numero Punto Numero P_coma |
+    Const Double Identificador Igual Numero Punto Numero P_coma |
     Char Identificador P_coma |
-    Char Identificador Igual Comillas Identificador Comillas P_coma| 
+    Char Identificador Igual Comillas Identificador Comillas P_coma|
+    Const Char Identificador Igual Comillas Identificador Comillas P_coma| 
     Float Identificador P_coma | 
     Float Identificador Op_atribucion Numero Punto Numero P_coma |
     Float Identificador Igual Numero Punto Numero P_coma |
+    Const Float Identificador Igual Numero Punto Numero P_coma |
     Cadena Identificador Op_atribucion Comillas Comillas P_coma |
     Cadena Identificador Igual Comillas Comillas P_coma |
     Cadena Identificador Op_atribucion Comillas Identificador Comillas P_coma |
-    Cadena Identificador Igual Comillas Identificador Comillas P_coma
+    Cadena Identificador Igual Comillas Identificador Comillas P_coma |
+    Const Cadena Identificador Igual Comillas Identificador Comillas P_coma |
+    STRUCT
 ;
 IF ::= If Parent_a SENTENCIA_BOOLEANA Parent_c Llave_a SENTENCIA Llave_c
 ;
@@ -134,4 +161,11 @@ SENTENCIACOUT ::=
 COUT ::=
     Cout Op_relacional Comillas CADENA Comillas P_coma |
     Cout Op_relacional Comillas CADENA Comillas SENTENCIACOUT P_coma 
+;
+DECLARACION_STRUCT ::=
+    DECLARACION |
+    DECLARACION DECLARACION_STRUCT 
+;
+STRUCT ::=
+    Struct Identificador Llave_a DECLARACION_STRUCT Llave_c P_coma 
 ;
