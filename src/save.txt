@@ -1,10 +1,3 @@
 int main(){
-int var=10;
-double b;
-long double=3.52;
-struct fecha {
-int var=10;
-double b;
-long double=3.52;
-}
+return 0;
 }

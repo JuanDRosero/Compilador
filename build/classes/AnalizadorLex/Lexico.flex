@@ -62,7 +62,7 @@ espacio=[ \t \r]+
 ( if ) {lexemas=yytext(); return If;}
 
 /* Palabra reservada TypeDef */
-( typedef) {lexemas=yytext(); return TypeDef;}
+( typedef ) {lexemas=yytext(); return TypeDef;}
 
 /* Palabra reservada Enum */
 ( enum ) {lexemas=yytext(); return Enum;}
@@ -167,7 +167,7 @@ espacio=[ \t \r]+
 ( "main" ) {lexemas=yytext(); return Main;}
 
 /* Palabra reservada Return */
-( "return" ) {lexemas=yytext(); return Return;}
+( return ) {lexemas=yytext(); return Return;}
 
 /* Punto */
 ( "." ) {lexemas=yytext(); return Punto;}

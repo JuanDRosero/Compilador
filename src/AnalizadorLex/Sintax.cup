@@ -21,10 +21,10 @@ terminal Linea, Comillas, T_dato, Cadena, If, Else, Do, While, For, Int, Double,
     Igual, Suma, Resta, Multiplicacion, Division, Op_logico, Op_relacional,
     Op_atribucion, Op_incremento, Op_booleano, Parent_a, Parent_c,
     Llave_a, Llave_c, Corchete_a, Corchete_c, Main, P_coma, Punto, Coma, Identificador, Dos_puntos,
-    Numero,Return, ERROR;
+    Numero, Return, ERROR;
 non terminal INICIO, SENTENCIA, DECLARACION, DECLARACION_FOR, IF, IF_ELSE,
     WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR, DECLARACIONV, CADENA,  PRINTF,
- SCANF, SENTENCIACOUT, CIN, COUT, SWITCH, SENTENCIA_CASE, DECLARACION_STRUCT,  STRUCT ;
+ SCANF, SENTENCIACOUT, CIN, COUT, SWITCH, SENTENCIA_CASE, DECLARACION_STRUCT,  STRUCT, RETURN, ELEMENTOS, ELEMENTOS_DECLARACION, ENUM;
 
 start with INICIO;
 
@@ -52,7 +52,11 @@ SENTENCIA ::=
     COUT |
     SENTENCIA COUT |
     SWITCH |
-    SENTENCIA SWITCH 
+    SENTENCIA SWITCH |
+    RETURN |
+    SENTENCIA RETURN |
+    ENUM |
+    SENTENCIA ENUM
 ;
 DECLARACION ::= 
     Int Identificador P_coma |
@@ -97,7 +101,43 @@ DECLARACION ::=
     Cadena Identificador Op_atribucion Comillas Identificador Comillas P_coma |
     Cadena Identificador Igual Comillas Identificador Comillas P_coma |
     Const Cadena Identificador Igual Comillas Identificador Comillas P_coma |
-    STRUCT
+    STRUCT |
+    Unsigned Int Identificador P_coma |
+    Unsigned Long Long Identificador P_coma |
+    Unsigned Short Identificador P_coma |
+    Unsigned Long Identificador P_coma |
+    Unsigned Char Identificador P_coma |
+    Unsigned Int Identificador Igual Numero P_coma |
+    Unsigned Long Long Identificador Igual Numero P_coma |
+    Unsigned Short Identificador Igual Numero P_coma |
+    Unsigned Long Identificador Igual Numero P_coma |
+    Unsigned Char Identificador Igual Numero P_coma |
+    Extern Int Identificador P_coma |
+    Extern Const Int Identificador P_coma |
+    Extern Int Identificador Numero Punto Numero P_coma |
+    Extern Const Identificador Numero Punto Numero P_coma |
+    Extern Comillas Identificador Comillas |
+    Register Int Identificador |
+    Register Int Identificador Numero Punto Numero P_coma |
+    TypeDef STRUCT |
+    TypeDef Unsigned Long Identificador P_coma |
+    TypeDef Int Identificador P_coma
+;
+RETURN ::=
+    Return Identificador P_coma
+;
+ELEMENTOS ::=
+    Identificador |
+    Identificador Coma ELEMENTOS
+;
+ELEMENTOS_DECLARACION ::=
+    Identificador Igual Numero |
+    Identificador Igual Numero Coma ELEMENTOS_DECLARACION |
+    ELEMENTOS ELEMENTOS_DECLARACION
+;
+ENUM ::=
+    Enum Llave_a ELEMENTOS Llave_c P_coma |
+    Enum Llave_a ELEMENTOS_DECLARACION Llave_c P_coma
 ;
 IF ::= If Parent_a SENTENCIA_BOOLEANA Parent_c Llave_a SENTENCIA Llave_c
 ;
@@ -141,7 +181,8 @@ DECLARACIONV ::=
 CADENA ::=
     Identificador |
     Identificador CADENA
-;   
+;
+
 PRINTF ::=
     PrintF Parent_a Comillas CADENA Comillas Parent_c P_coma |
     PrintF Parent_a Comillas CADENA Comillas Coma DECLARACIONV Parent_c P_coma 

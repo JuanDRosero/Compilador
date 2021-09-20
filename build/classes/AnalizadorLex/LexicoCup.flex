@@ -195,3 +195,6 @@ espacio=[ \t \r \n]+
 
 /* Return */
 ( "return" ) {return new Symbol(sym.Return, yychar, yyline, yytext());}
+
+/* Extern */
+( "extern" ) {return new Symbol(sym.Extern, yychar, yyline, yytext());}
