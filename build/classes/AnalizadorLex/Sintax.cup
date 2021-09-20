@@ -24,7 +24,7 @@ terminal Linea, Comillas, T_dato, Cadena, If, Else, Do, While, For, Int, Double,
     Numero, Return, ERROR;
 non terminal INICIO, SENTENCIA, DECLARACION, DECLARACION_FOR, IF, IF_ELSE,
     WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR, DECLARACIONV, CADENA,  PRINTF,
- SCANF, SENTENCIACOUT, CIN, COUT, SWITCH, SENTENCIA_CASE, DECLARACION_STRUCT, STRUCT, VARIABLES_STRUCT, RETURN, ELEMENTOS, ELEMENTOS_DECLARACION, ENUM;
+ SCANF, SENTENCIACOUT, CIN, COUT, SWITCH, SENTENCIA_CASE, DECLARACION_STRUCT, STRUCT, VARIABLES_STRUCT, RETURN, ELEMENTOS, ELEMENTOS_DECLARACION, ENUM, GOTOSENT, GOTO;
 
 start with INICIO;
 
@@ -58,7 +58,13 @@ SENTENCIA ::=
     SENTENCIA STRUCT |
     SENTENCIA ENUM |
     RETURN |
-    SENTENCIA RETURN 
+    SENTENCIA RETURN |
+    Continue P_coma |
+    SENTENCIA Continue P_coma |
+    Break P_coma |
+    SENTENCIA Break P_coma |
+    GOTO |
+    SENTENCIA GOTO
 ;
 DECLARACION ::= 
     Int Identificador P_coma |
@@ -112,14 +118,16 @@ DECLARACION ::=
     Unsigned Long Long Identificador Igual Numero P_coma |
     Unsigned Short Identificador Igual Numero P_coma |
     Unsigned Long Identificador Igual Numero P_coma |
-    Unsigned Char Identificador Igual Numero P_coma |
+    Unsigned Char Identificador Igual Comillas Identificador Comillas P_coma |
+    Register Int Identificador P_coma |
+    Register Int Identificador Igual Numero P_coma |
     Extern Int Identificador P_coma |
     Extern Const Int Identificador P_coma |
-    Extern Int Identificador Numero Punto Numero P_coma |
-    Extern Const Identificador Numero Punto Numero P_coma |
+    Extern Const Int Identificador Igual Numero P_coma |
+    Extern Int Identificador Igual Numero P_coma |
+    Extern Const Identificador Igual Numero P_coma |
+    Extern Const Identificador |
     Extern Comillas Identificador Comillas |
-    Register Int Identificador |
-    Register Int Identificador Numero Punto Numero P_coma |
     TypeDef STRUCT |
     TypeDef Unsigned Long Identificador P_coma |
     TypeDef Int Identificador P_coma |
@@ -155,7 +163,7 @@ WHILE ::= While Parent_a SENTENCIA_BOOLEANA Parent_c Llave_a SENTENCIA Llave_c
 FOR ::= For Parent_a SENTENCIA_FOR Parent_c Llave_a SENTENCIA Llave_c
 ;
 SENTENCIA_FOR ::=
-    T_dato Identificador Igual Numero P_coma SENTENCIA_BOOLEANA P_coma DECLARACION_FOR |
+    Int Identificador Igual Numero P_coma SENTENCIA_BOOLEANA P_coma DECLARACION_FOR |
     Identificador Igual Numero P_coma SENTENCIA_BOOLEANA P_coma DECLARACION_FOR
 ;
 SENTENCIA_CASE ::=
@@ -217,6 +225,13 @@ VARIABLES_STRUCT ::=
 STRUCT ::=
     Struct Identificador Llave_a DECLARACION_STRUCT Llave_c P_coma 
 ;
+GOTOSENT ::=
+    Identificador Dos_puntos SENTENCIA
+;
+GOTO ::=
+    GoTo Identificador P_coma
+;
 RETURN ::=
-    Return Identificador P_coma
+    Return Identificador P_coma |
+    Return Numero P_coma
 ;

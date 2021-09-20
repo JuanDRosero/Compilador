@@ -1,4 +1,3 @@
 int main(){
-
-return var;
+return 0;
 }
