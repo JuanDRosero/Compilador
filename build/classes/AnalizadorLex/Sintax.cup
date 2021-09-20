@@ -24,7 +24,7 @@ terminal Linea, Comillas, T_dato, Cadena, If, Else, Do, While, For, Int, Double,
     Numero, Return, ERROR;
 non terminal INICIO, SENTENCIA, DECLARACION, DECLARACION_FOR, IF, IF_ELSE,
     WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR, DECLARACIONV, CADENA,  PRINTF,
- SCANF, SENTENCIACOUT, CIN, COUT, SWITCH, SENTENCIA_CASE, DECLARACION_STRUCT,  STRUCT, RETURN, ELEMENTOS, ELEMENTOS_DECLARACION, ENUM;
+ SCANF, SENTENCIACOUT, CIN, COUT, SWITCH, SENTENCIA_CASE, DECLARACION_STRUCT, STRUCT, VARIABLES_STRUCT, RETURN, ELEMENTOS, ELEMENTOS_DECLARACION, ENUM;
 
 start with INICIO;
 
@@ -53,10 +53,12 @@ SENTENCIA ::=
     SENTENCIA COUT |
     SWITCH |
     SENTENCIA SWITCH |
-    RETURN |
-    SENTENCIA RETURN |
     ENUM |
-    SENTENCIA ENUM
+    STRUCT |
+    SENTENCIA STRUCT |
+    SENTENCIA ENUM |
+    RETURN |
+    SENTENCIA RETURN 
 ;
 DECLARACION ::= 
     Int Identificador P_coma |
@@ -101,7 +103,6 @@ DECLARACION ::=
     Cadena Identificador Op_atribucion Comillas Identificador Comillas P_coma |
     Cadena Identificador Igual Comillas Identificador Comillas P_coma |
     Const Cadena Identificador Igual Comillas Identificador Comillas P_coma |
-    STRUCT |
     Unsigned Int Identificador P_coma |
     Unsigned Long Long Identificador P_coma |
     Unsigned Short Identificador P_coma |
@@ -121,10 +122,8 @@ DECLARACION ::=
     Register Int Identificador Numero Punto Numero P_coma |
     TypeDef STRUCT |
     TypeDef Unsigned Long Identificador P_coma |
-    TypeDef Int Identificador P_coma
-;
-RETURN ::=
-    Return Identificador P_coma
+    TypeDef Int Identificador P_coma |
+    Identificador Identificador Igual Llave_a VARIABLES_STRUCT Llave_c P_coma
 ;
 ELEMENTOS ::=
     Identificador |
@@ -207,6 +206,17 @@ DECLARACION_STRUCT ::=
     DECLARACION |
     DECLARACION DECLARACION_STRUCT 
 ;
+VARIABLES_STRUCT ::=
+    Numero |
+    Comillas CADENA Comillas |
+    Numero Punto Numero |
+    Numero Coma VARIABLES_STRUCT |
+    Comillas CADENA Comillas Coma VARIABLES_STRUCT |
+    Numero Punto Numero Coma VARIABLES_STRUCT
+;
 STRUCT ::=
     Struct Identificador Llave_a DECLARACION_STRUCT Llave_c P_coma 
+;
+RETURN ::=
+    Return Identificador P_coma
 ;
