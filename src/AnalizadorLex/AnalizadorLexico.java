@@ -1,6 +1,6 @@
 /*
-    Analizador Lexico
-    Julieth Tatiana Riaño Mora-20181020110
+    Analizador Lexico y Sintactico
+    Julieth Tatiana Riaño Mora-20181020107
     Juan David Rosero Torres-20181020071
 */
 

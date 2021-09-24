@@ -23,7 +23,7 @@ terminal Linea, Comillas, T_dato, Cadena, If, Else, Do, While, For, Int, Double,
     Llave_a, Llave_c, Corchete_a, Corchete_c, Main, P_coma, Punto, Coma, Identificador, Dos_puntos,
     Numero, Return, ERROR;
 non terminal INICIO, SENTENCIA, DECLARACION, DECLARACION_FOR, IF, IF_ELSE,
-    WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR, DECLARACIONV, CADENA,  PRINTF,
+    WHILE, DO_WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR, DECLARACIONV, CADENA,  PRINTF,
  SCANF, SENTENCIACOUT, CIN, COUT, SWITCH, SENTENCIA_CASE, DECLARACION_STRUCT, STRUCT, VARIABLES_STRUCT, RETURN, ELEMENTOS, ELEMENTOS_DECLARACION, ENUM, GOTOSENT, GOTO;
 
 start with INICIO;
@@ -32,7 +32,11 @@ INICIO ::=
     Int Main Parent_a Parent_c Llave_a SENTENCIA Llave_c |
     Main Parent_a Parent_c Llave_a SENTENCIA Llave_c |
     STRUCT Int Main Parent_a Parent_c Llave_a SENTENCIA Llave_c |
-    STRUCT Main Parent_a Parent_c Llave_a SENTENCIA Llave_c 
+    STRUCT Main Parent_a Parent_c Llave_a SENTENCIA Llave_c |
+    Int Main Parent_a Parent_c Llave_a SENTENCIA Llave_c GOTOSENT |
+    Main Parent_a Parent_c Llave_a SENTENCIA Llave_c GOTOSENT |
+    STRUCT Int Main Parent_a Parent_c Llave_a SENTENCIA Llave_c GOTOSENT |
+    STRUCT Main Parent_a Parent_c Llave_a SENTENCIA Llave_c GOTOSENT
 ;
 SENTENCIA ::= 
     SENTENCIA DECLARACION |
@@ -43,6 +47,8 @@ SENTENCIA ::=
     IF_ELSE |
     SENTENCIA WHILE |
     WHILE |
+    DO_WHILE |
+    SENTENCIA DO_WHILE |
     SENTENCIA FOR |
     FOR |
     PRINTF |
@@ -59,6 +65,7 @@ SENTENCIA ::=
     STRUCT |
     SENTENCIA ENUM |
     RETURN |
+    SENTENCIA RETURN |
     Continue P_coma |
     SENTENCIA Continue P_coma |
     Break P_coma |
@@ -90,6 +97,10 @@ DECLARACION ::=
     Long Long Int Identificador Igual Numero P_coma |
     Long Long Int Identificador Op_incremento P_coma | 
     Long Long Int Op_incremento Identificador P_coma | 
+    Int Identificador Igual Numero Suma Numero P_coma |
+    Int Identificador  Igual Numero Resta Numero P_coma |
+    Int Identificador  Igual Numero Multiplicacion Numero P_coma |
+    Int Identificador  Igual Numero Division Numero P_coma |
     Double Identificador P_coma |
     Double Identificador Op_atribucion Numero Punto Numero P_coma |
     Double Identificador Igual Numero Punto Numero P_coma |
@@ -97,6 +108,10 @@ DECLARACION ::=
     Long Double Identificador Op_atribucion Numero Punto Numero P_coma |
     Long Double Identificador Igual Numero Punto Numero P_coma |
     Const Double Identificador Igual Numero Punto Numero P_coma |
+    Double Identificador  Igual Numero Punto Numero Suma Numero Punto Numero P_coma |
+    Double Identificador  Igual Numero Punto Numero Resta Numero Punto Numero P_coma |
+    Double Identificador  Igual Numero Punto Numero Multiplicacion Numero Punto Numero P_coma |
+    Double Identificador  Igual Numero Punto Numero Division Numero Punto Numero P_coma |
     Char Identificador P_coma |
     Char Identificador Igual Comillas Identificador Comillas P_coma|
     Const Char Identificador Igual Comillas Identificador Comillas P_coma| 
@@ -104,11 +119,17 @@ DECLARACION ::=
     Float Identificador Op_atribucion Numero Punto Numero P_coma |
     Float Identificador Igual Numero Punto Numero P_coma |
     Const Float Identificador Igual Numero Punto Numero P_coma |
+    Float Identificador  Igual Numero Punto Numero Suma Numero Punto Numero P_coma |
+    Float Identificador  Igual Numero Punto Numero Resta Numero Punto Numero P_coma |
+    Float Identificador  Igual Numero Punto Numero Multiplicacion Numero Punto Numero P_coma |
+    Float Identificador  Igual Numero Punto Numero Division Numero Punto Numero P_coma |
+    Cadena Identificador P_coma |
     Cadena Identificador Op_atribucion Comillas Comillas P_coma |
     Cadena Identificador Igual Comillas Comillas P_coma |
-    Cadena Identificador Op_atribucion Comillas Identificador Comillas P_coma |
-    Cadena Identificador Igual Comillas Identificador Comillas P_coma |
-    Const Cadena Identificador Igual Comillas Identificador Comillas P_coma |
+    Cadena Identificador Op_atribucion Comillas CADENA Comillas P_coma |
+    Cadena Identificador Igual Comillas CADENA Comillas P_coma |
+    Const Cadena Identificador Igual Comillas CADENA Comillas P_coma |
+    Cadena Identificador  Igual Numero Punto Comillas CADENA Comillas Suma Comillas CADENA Comillas Punto Numero P_coma |
     Unsigned Int Identificador P_coma |
     Unsigned Long Long Identificador P_coma |
     Unsigned Short Identificador P_coma |
@@ -131,7 +152,24 @@ DECLARACION ::=
     TypeDef STRUCT |
     TypeDef Unsigned Long Identificador P_coma |
     TypeDef Int Identificador P_coma |
-    Identificador Identificador Igual Llave_a VARIABLES_STRUCT Llave_c P_coma
+    Identificador Identificador Igual Llave_a VARIABLES_STRUCT Llave_c P_coma |
+    Identificador Op_atribucion Identificador P_coma |
+    Identificador Op_atribucion Numero P_coma |
+    Identificador Op_atribucion Numero Punto Numero P_coma|
+    Identificador Op_atribucion Comillas CADENA Comillas P_coma |
+    Identificador Igual Identificador P_coma |
+    Identificador Igual Numero P_coma |
+    Identificador Igual Numero Punto Numero P_coma|
+    Identificador Igual Comillas CADENA Comillas P_coma |
+    Identificador  Igual Numero Suma Numero P_coma |
+    Identificador  Igual Numero Resta Numero P_coma |
+    Identificador  Igual Numero Multiplicacion Numero P_coma |
+    Identificador  Igual Numero Division Numero P_coma |
+    Identificador  Igual Numero Punto Numero Suma Numero Punto Numero P_coma |
+    Identificador  Igual Numero Punto Numero Resta Numero Punto Numero P_coma |
+    Identificador  Igual Numero Punto Numero Multiplicacion Numero Punto Numero P_coma |
+    Identificador  Igual Numero Punto Numero Division Numero Punto Numero P_coma |
+    Identificador  Igual Numero Punto Comillas CADENA Comillas Suma Comillas CADENA Comillas Punto Numero P_coma 
 ;
 ELEMENTOS ::=
     Identificador |
@@ -159,6 +197,8 @@ SENTENCIA_BOOLEANA ::=
 IF_ELSE ::= If Parent_a SENTENCIA_BOOLEANA Parent_c Llave_a SENTENCIA Llave_c Else Llave_a SENTENCIA Llave_c
 ;
 WHILE ::= While Parent_a SENTENCIA_BOOLEANA Parent_c Llave_a SENTENCIA Llave_c
+;
+DO_WHILE::= Do Llave_a SENTENCIA Llave_c While Parent_a SENTENCIA_BOOLEANA Parent_c P_coma
 ;
 FOR ::= For Parent_a SENTENCIA_FOR Parent_c Llave_a SENTENCIA Llave_c
 ;
@@ -232,6 +272,8 @@ GOTO ::=
     GoTo Identificador P_coma
 ;
 RETURN ::=
+    Return Numero P_coma |
+    Return Numero Punto Numero P_coma |
     Return Identificador P_coma |
-    Return Numero P_coma
+    Return Comillas CADENA Comillas
 ;

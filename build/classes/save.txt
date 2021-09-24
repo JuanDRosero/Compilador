@@ -1,7 +1,11 @@
 int main(){
-struct estudiante{
-int codigo;
-double nota=3.52;
-string cadena = "Hola";
-};
+for (i = 0; i < number; ++i)
+{
+    test += i;
+    goto two;
+}
+two: 
+if (test > 5) {
+  goto three;
+}
 }

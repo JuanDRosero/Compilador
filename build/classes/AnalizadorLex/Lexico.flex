@@ -167,7 +167,7 @@ espacio=[ \t \r]+
 ( "main" ) {lexemas=yytext(); return Main;}
 
 /* Palabra reservada Return */
-( return ) {lexemas=yytext(); return Return;}
+( "return" ) {lexemas=yytext(); return Return;}
 
 /* Punto */
 ( "." ) {lexemas=yytext(); return Punto;}

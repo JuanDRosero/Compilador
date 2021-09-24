@@ -1,8 +1,8 @@
 /*
- * Analizador lexico
- * Julieth Tatiana Riaño Mora - 20181020110
- * Juan David Rosero Torres - 20181020071
- */
+    Analizador Lexico y Sintactico
+    Julieth Tatiana Riaño Mora-20181020107
+    Juan David Rosero Torres-20181020071
+*/
 package AnalizadorLex;
 
 import java.awt.Color;
@@ -63,6 +63,8 @@ public class FrmAnalizador extends javax.swing.JFrame {
         jScrollPane3.setViewportView(Resultado1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Compilador");
+        setResizable(false);
 
         BotonAnalisis.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         BotonAnalisis.setText("Análisis Léxico");
