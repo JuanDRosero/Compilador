@@ -190,11 +190,13 @@ espacio=[ \t \r \n]+
 /* Numero */
 ("(-"{D}+")")|{D}+ {return new Symbol(sym.Numero, yychar, yyline, yytext());}
 
-/* Error de analisis */
- . {return new Symbol(sym.ERROR, yychar, yyline, yytext());}
-
 /* Return */
 ( "return" ) {return new Symbol(sym.Return, yychar, yyline, yytext());}
 
 /* Extern */
 ( "extern" ) {return new Symbol(sym.Extern, yychar, yyline, yytext());}
+
+/* Error de analisis */
+ . {return new Symbol(sym.ERROR, yychar, yyline, yytext());}
+
+

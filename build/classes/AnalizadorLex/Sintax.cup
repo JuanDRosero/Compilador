@@ -30,7 +30,9 @@ start with INICIO;
 
 INICIO ::= 
     Int Main Parent_a Parent_c Llave_a SENTENCIA Llave_c |
-    Main Parent_a Parent_c Llave_a SENTENCIA Llave_c
+    Main Parent_a Parent_c Llave_a SENTENCIA Llave_c |
+    STRUCT Int Main Parent_a Parent_c Llave_a SENTENCIA Llave_c |
+    STRUCT Main Parent_a Parent_c Llave_a SENTENCIA Llave_c 
 ;
 SENTENCIA ::= 
     SENTENCIA DECLARACION |
@@ -55,16 +57,14 @@ SENTENCIA ::=
     SENTENCIA SWITCH |
     ENUM |
     STRUCT |
-    SENTENCIA STRUCT |
     SENTENCIA ENUM |
     RETURN |
-    SENTENCIA RETURN |
     Continue P_coma |
     SENTENCIA Continue P_coma |
     Break P_coma |
     SENTENCIA Break P_coma |
     GOTO |
-    SENTENCIA GOTO
+    SENTENCIA GOTO 
 ;
 DECLARACION ::= 
     Int Identificador P_coma |

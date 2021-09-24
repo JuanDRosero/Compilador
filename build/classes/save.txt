@@ -1,3 +1,7 @@
 int main(){
-return 0;
+struct estudiante{
+int codigo;
+double nota=3.52;
+string cadena = "Hola";
+};
 }
