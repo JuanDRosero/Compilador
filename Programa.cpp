@@ -9,5 +9,6 @@ if(a==1){
 }
 printf("Despues: %d \n",b);
 
+system("pause");
 return b;
 }
