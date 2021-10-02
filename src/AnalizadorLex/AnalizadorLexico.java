@@ -1,5 +1,5 @@
 /*
-    Analizador Lexico y Sintactico
+    Analizador Lexico , Sintactico, Compilador
     Julieth Tatiana Riaño Mora-20181020107
     Juan David Rosero Torres-20181020071
 */

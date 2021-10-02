@@ -1,11 +1,12 @@
+
 int main(){
-for (i = 0; i < number; ++i)
-{
-    test += i;
-    goto two;
+int a=1,b=0;
+printf("Al inicio: %d \n",b);
+if(a==1){
+ b=5;
 }
-two: 
-if (test > 5) {
-  goto three;
-}
+printf("Despues: %d \n",b);
+
+system("pause");
+return b;
 }
